@@ -169,12 +169,23 @@
   footer { padding-block: 10px 48px; text-align: center; }
   footer p { font-size: 13px; }
   .view-toggle { margin-top: 14px; }
-  .view-toggle button { background: none; border: none; color: var(--ink-soft); font-size: 11.5px; text-decoration: underline; cursor: pointer; font-family: var(--font-body); }
-  #admin-panel { margin-top: 18px; text-align: left; background: var(--paper-raised); border: 2px solid var(--line); border-top: 5px solid var(--tekhelet); border-radius: 14px; padding: 20px 24px; }
-  #admin-panel h3 { font-size: 16px; margin: 0 0 10px; }
-  #admin-panel ul { margin: 0; padding-left: 20px; font-size: 13.5px; }
-  #admin-panel li { margin-bottom: 8px; }
-  #admin-panel .note { margin-top: 12px; font-size: 12.5px; background: var(--gold-soft); border-radius: 8px; padding: 10px 14px; }
+  .view-toggle button {
+    background: var(--paper-raised); border: 1px solid var(--line); color: var(--ink-soft); font-size: 12px;
+    font-weight: 600; cursor: pointer; font-family: var(--font-body); padding: 7px 16px; border-radius: 999px;
+  }
+  .view-toggle button:hover { border-color: var(--tekhelet); color: var(--tekhelet); }
+  #admin-panel { margin-top: 24px; text-align: left; }
+  #admin-panel .eyebrow { margin-bottom: 10px; }
+  #admin-panel h3 { font-size: 20px; font-family: var(--font-display); margin: 0 0 16px; color: var(--ink); }
+  .admin-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+  @media (max-width: 620px) { .admin-cards { grid-template-columns: 1fr; } }
+  .admin-card { background: var(--paper-raised); border: 1px solid var(--line); border-radius: 14px; padding: 16px 18px; border-top: 4px solid var(--tekhelet); }
+  .admin-card.gold { border-top-color: var(--gold-bright); }
+  .admin-card.olive { border-top-color: var(--olive); }
+  .admin-card .ic { font-size: 20px; margin-bottom: 6px; display: block; }
+  .admin-card h4 { font-size: 14.5px; margin: 0 0 6px; font-family: var(--font-body); font-weight: 700; color: var(--ink); }
+  .admin-card p { font-size: 13px; margin: 0; line-height: 1.45; }
+  #admin-panel .note { margin-top: 16px; font-size: 12.5px; background: var(--gold-soft); border: 1px solid var(--gold-dark); border-radius: 10px; padding: 12px 16px; }
 
   .fade-in { opacity: 0; transform: translateY(14px); transition: opacity .6s ease, transform .6s ease; }
   .fade-in.in { opacity: 1; transform: none; }
@@ -383,13 +394,26 @@
       <button type="button" id="admin-toggle">View as admin</button>
     </div>
     <section id="admin-panel" hidden>
-      <h3>Admin view</h3>
-      <ul>
-        <li><strong>Signups:</strong> every submission from the form above is emailed straight to <a href="mailto:yairbre11@gmail.com">yairbre11@gmail.com</a> the moment someone sends it — that inbox is the real, authoritative list.</li>
-        <li><strong>Page traffic:</strong> real visit counts for this page are in GitHub's own traffic dashboard (visible only to you, signed in) — <a href="https://github.com/yairbre1988/speak-hebrew-charlotte/graphs/traffic" target="_blank" rel="noopener">github.com/yairbre1988/speak-hebrew-charlotte → Insights → Traffic</a>.</li>
-        <li><strong>Live tracking dashboard:</strong> the earlier Claude-hosted version of this page has a built-in visits/signups dashboard — open it and set its Share setting to see it update live: <a href="https://claude.ai/artifact/4p4jd6tQXyJsa8aSJjKNgc" target="_blank" rel="noopener">claude.ai/artifact/4p4jd6tQXyJsa8aSJjKNgc</a>.</li>
-      </ul>
-      <p class="note">This page is a static, publicly-hosted copy (no backend), so it can't store submissions itself — the email above and the two links are the real data sources.</p>
+      <p class="eyebrow">Admin — Only You Need This</p>
+      <h3>Where to actually check signups &amp; traffic</h3>
+      <div class="admin-cards">
+        <div class="admin-card">
+          <span class="ic">✉️</span>
+          <h4>Signups</h4>
+          <p>Every submission is emailed straight to <a href="mailto:yairbre11@gmail.com">yairbre11@gmail.com</a> the moment someone sends it — that inbox is the real, authoritative list.</p>
+        </div>
+        <div class="admin-card gold">
+          <span class="ic">📈</span>
+          <h4>Page traffic</h4>
+          <p>Real visit counts live in GitHub's own traffic dashboard (visible only to you, signed in) — <a href="https://github.com/yairbre1988/speak-hebrew-charlotte/graphs/traffic" target="_blank" rel="noopener">Insights → Traffic</a>.</p>
+        </div>
+        <div class="admin-card olive">
+          <span class="ic">🗂️</span>
+          <h4>Live dashboard</h4>
+          <p>The earlier Claude-hosted version of this page has a built-in visits/signups dashboard — open it and set its Share setting to see it update live: <a href="https://claude.ai/artifact/4p4jd6tQXyJsa8aSJjKNgc" target="_blank" rel="noopener">open the Claude page</a>.</p>
+        </div>
+      </div>
+      <p class="note">This page is a static, publicly-hosted copy (no backend), so it can't store submissions itself — the email and the two links above are the real data sources.</p>
     </section>
   </footer>
 
