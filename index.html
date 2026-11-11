@@ -168,6 +168,13 @@
   .skyline-band { width: 100%; height: 70px; display: block; }
   footer { padding-block: 10px 48px; text-align: center; }
   footer p { font-size: 13px; }
+  .view-toggle { margin-top: 14px; }
+  .view-toggle button { background: none; border: none; color: var(--ink-soft); font-size: 11.5px; text-decoration: underline; cursor: pointer; font-family: var(--font-body); }
+  #admin-panel { margin-top: 18px; text-align: left; background: var(--paper-raised); border: 2px solid var(--line); border-top: 5px solid var(--tekhelet); border-radius: 14px; padding: 20px 24px; }
+  #admin-panel h3 { font-size: 16px; margin: 0 0 10px; }
+  #admin-panel ul { margin: 0; padding-left: 20px; font-size: 13.5px; }
+  #admin-panel li { margin-bottom: 8px; }
+  #admin-panel .note { margin-top: 12px; font-size: 12.5px; background: var(--gold-soft); border-radius: 8px; padding: 10px 14px; }
 
   .fade-in { opacity: 0; transform: translateY(14px); transition: opacity .6s ease, transform .6s ease; }
   .fade-in.in { opacity: 1; transform: none; }
@@ -372,6 +379,18 @@
   <footer>
     <p>Hebrew Language Studies for Adults — a proposal for the Jewish Federation &amp; the Charlotte Jewish community · Yafa &amp; Yair Brenner</p>
     <p>Questions? Call or text Yair at 659-281-6844, or email <a href="mailto:yairbre11@gmail.com">yairbre11@gmail.com</a></p>
+    <div class="view-toggle">
+      <button type="button" id="admin-toggle">View as admin</button>
+    </div>
+    <section id="admin-panel" hidden>
+      <h3>Admin view</h3>
+      <ul>
+        <li><strong>Signups:</strong> every submission from the form above is emailed straight to <a href="mailto:yairbre11@gmail.com">yairbre11@gmail.com</a> the moment someone sends it — that inbox is the real, authoritative list.</li>
+        <li><strong>Page traffic:</strong> real visit counts for this page are in GitHub's own traffic dashboard (visible only to you, signed in) — <a href="https://github.com/yairbre1988/speak-hebrew-charlotte/graphs/traffic" target="_blank" rel="noopener">github.com/yairbre1988/speak-hebrew-charlotte → Insights → Traffic</a>.</li>
+        <li><strong>Live tracking dashboard:</strong> the earlier Claude-hosted version of this page has a built-in visits/signups dashboard — open it and set its Share setting to see it update live: <a href="https://claude.ai/artifact/4p4jd6tQXyJsa8aSJjKNgc" target="_blank" rel="noopener">claude.ai/artifact/4p4jd6tQXyJsa8aSJjKNgc</a>.</li>
+      </ul>
+      <p class="note">This page is a static, publicly-hosted copy (no backend), so it can't store submissions itself — the email above and the two links are the real data sources.</p>
+    </section>
   </footer>
 
 </main>
@@ -405,6 +424,16 @@
   } else {
     document.querySelectorAll('.fade-in').forEach((el) => el.classList.add('in'));
   }
+
+  // ---------- admin / visitor view toggle ----------
+  const adminToggle = document.getElementById('admin-toggle');
+  const adminPanel = document.getElementById('admin-panel');
+  function setAdminView(on) {
+    adminPanel.hidden = !on;
+    adminToggle.textContent = on ? 'View as prospective student' : 'View as admin';
+  }
+  adminToggle.addEventListener('click', () => setAdminView(adminPanel.hidden));
+  if (new URLSearchParams(location.search).get('admin') === '1') setAdminView(true);
 </script>
 
 </body>
