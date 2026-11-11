@@ -1,0 +1,411 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Speak Hebrew, Charlotte</title>
+<meta name="description" content="A proposed conversation-first Hebrew program for Charlotte's Jewish community — led by Yafa Brenner and co-taught with her partner, Yair.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Frank+Ruhl+Libre:wght@500;600;700;900&family=Assistant:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@500;600;700&family=Baloo+2:wght@600;700;800&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --paper: #f2f8ff;
+    --paper-raised: #ffffff;
+    --ink: #0f2a4d;
+    --ink-soft: #3c5a80;
+    --tekhelet: #1a5fa8;
+    --tekhelet-soft: #dcebfc;
+    --gold: #b9780f;
+    --gold-bright: #ffcb3d;
+    --gold-dark: #e8a916;
+    --gold-soft: #fff1d2;
+    --line: #cfe0f2;
+    --good: #2f7a4f;
+    --olive: #5c8a3a;
+    --olive-light: #74ad48;
+    --sky-top: #5ba8e8;
+    --sky-bot: #d9edfc;
+
+    --font-display: 'Frank Ruhl Libre', 'Times New Roman', serif;
+    --font-body: 'Assistant', -apple-system, 'Segoe UI', sans-serif;
+    --font-mono: 'IBM Plex Mono', ui-monospace, monospace;
+    --font-fun: 'Baloo 2', sans-serif;
+    color-scheme: light;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --paper: #0a1626; --paper-raised: #122034; --ink: #eaf2ff; --ink-soft: #a9c2e0;
+      --tekhelet: #70b2f2; --tekhelet-soft: #16324f; --gold: #f0c35c; --gold-bright: #ffcb3d;
+      --gold-dark: #f0c35c; --gold-soft: #2c2413; --line: #203350; --good: #5cb682;
+      --olive: #8fc15c; --olive-light: #a6d16e; --sky-top: #0d2b4a; --sky-bot: #122840;
+      color-scheme: dark;
+    }
+  }
+  :root[data-theme="dark"] {
+    --paper: #0a1626; --paper-raised: #122034; --ink: #eaf2ff; --ink-soft: #a9c2e0;
+    --tekhelet: #70b2f2; --tekhelet-soft: #16324f; --gold: #f0c35c; --gold-bright: #ffcb3d;
+    --gold-dark: #f0c35c; --gold-soft: #2c2413; --line: #203350; --good: #5cb682;
+    --olive: #8fc15c; --olive-light: #a6d16e; --sky-top: #0d2b4a; --sky-bot: #122840;
+    color-scheme: dark;
+  }
+
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--paper); color: var(--ink); font-family: var(--font-body); line-height: 1.55; padding-inline: 20px; }
+  img { max-width: 100%; }
+  main { max-width: 780px; margin: 0 auto; }
+  section { padding-block: 52px; border-bottom: 1px solid var(--line); position: relative; }
+  section:last-of-type { border-bottom: none; }
+  h1, h2, h3 { font-family: var(--font-display); font-weight: 700; text-wrap: balance; margin: 0; }
+  .eyebrow {
+    display: inline-block; font-family: var(--font-fun); font-weight: 700; font-size: 12.5px;
+    letter-spacing: .04em; text-transform: uppercase; background: var(--tekhelet); color: #fff;
+    padding: 5px 16px; border-radius: 999px 996px 999px 992px / 999px 992px 999px 996px;
+    transform: rotate(-1.4deg); margin: 0 0 12px;
+  }
+  .eyebrow.gold { background: var(--gold-bright); color: var(--ink); }
+  p { color: var(--ink-soft); }
+  a { color: var(--tekhelet); }
+
+  .heb-deco { position: absolute; font-family: var(--font-fun); font-weight: 800; direction: rtl; color: var(--tekhelet); opacity: .16; pointer-events: none; z-index: 0; user-select: none; }
+  .olive-deco { position: absolute; width: 70px; opacity: .55; pointer-events: none; z-index: 0; }
+
+  .hero { border-radius: 26px; overflow: hidden; margin-top: 22px; padding: 0; background: linear-gradient(180deg, var(--sky-top) 0%, var(--sky-bot) 100%); border-bottom: none; }
+  .hero-decor { position: absolute; inset: 0; z-index: 0; overflow: hidden; }
+  .cloud { position: absolute; background: #fff; border-radius: 50%; opacity: .8; }
+  .hero-inner { position: relative; z-index: 2; padding: 44px 28px 40px; text-align: center; }
+  .heb-badge { display: inline-flex; align-items: center; gap: 10px; background: var(--paper-raised); border: 3px solid var(--ink); border-radius: 18px 12px 20px 10px / 10px 20px 12px 18px; padding: 10px 20px; transform: rotate(-1.5deg); box-shadow: 0 5px 0 rgba(15,42,77,.25); }
+  .heb-badge .heb { font-family: var(--font-display); font-weight: 900; font-size: 34px; color: var(--tekhelet); direction: rtl; }
+  .heb-badge .ph { font-family: var(--font-mono); font-weight: 700; font-size: 12.5px; color: var(--gold); letter-spacing: .03em; }
+  .hero h1 { font-size: clamp(26px, 5.2vw, 38px); line-height: 1.16; max-width: 20ch; margin: 22px auto 0; color: var(--ink); text-shadow: 0 2px 0 rgba(255,255,255,.5); }
+  .hero .sub { font-size: 17px; max-width: 48ch; margin: 14px auto 0; color: var(--ink); }
+  .hero .meta { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 24px; font-family: var(--font-mono); font-size: 12.5px; justify-content: center; }
+  .pill { border: 2px solid var(--ink); background: var(--paper-raised); border-radius: 999px; padding: 6px 14px; color: var(--ink); font-weight: 600; }
+  .cta-row { margin-top: 26px; display: flex; gap: 14px; flex-wrap: wrap; justify-content: center; }
+  .btn { display: inline-flex; align-items: center; gap: 8px; font-family: var(--font-fun); font-weight: 700; font-size: 15.5px; padding: 13px 26px; border-radius: 14px 9px 16px 7px / 8px 15px 6px 17px; text-decoration: none; cursor: pointer; border: none; }
+  .btn-primary { background: var(--gold-bright); color: var(--ink); box-shadow: 0 4px 0 var(--gold-dark); }
+  .btn-ghost { background: var(--paper-raised); border: 2px solid var(--ink); color: var(--ink); box-shadow: 0 4px 0 rgba(15,42,77,.3); }
+
+  .dialogue { display: grid; gap: 16px; max-width: 520px; margin: 28px 0 0; }
+  .bubble { border-radius: 16px; padding: 16px 20px; font-size: 16px; border: 2px solid transparent; }
+  .bubble .heb-line { direction: rtl; font-family: var(--font-display); font-size: 21px; font-weight: 700; color: var(--ink); margin-bottom: 6px; }
+  .bubble .ph-line { font-family: var(--font-mono); font-weight: 700; font-size: 13px; letter-spacing: .03em; margin-bottom: 4px; }
+  .bubble .en-line { font-size: 13.5px; color: var(--ink-soft); }
+  .bubble.a { background: var(--tekhelet-soft); border-color: var(--tekhelet); justify-self: start; border-top-left-radius: 4px; }
+  .bubble.a .ph-line { color: var(--tekhelet); }
+  .bubble.b { background: var(--gold-soft); border-color: var(--gold-dark); justify-self: end; border-top-right-radius: 4px; }
+  .bubble.b .ph-line { color: var(--gold); }
+
+  .pillars { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-top: 34px; position: relative; z-index: 1; }
+  @media (max-width: 620px) { .pillars { grid-template-columns: 1fr; } }
+  .pillar { background: var(--paper-raised); border: 1px solid var(--line); border-radius: 14px; padding: 16px 18px; border-top: 4px solid var(--olive); }
+  .pillar .num { font-family: var(--font-mono); font-size: 13px; color: var(--gold); font-weight: 700; }
+  .pillar h3 { font-size: 18px; margin: 6px 0 6px; }
+  .pillar p { font-size: 14.5px; margin: 0; }
+
+  .levels { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; margin-top: 28px; }
+  @media (max-width: 560px) { .levels { grid-template-columns: 1fr; } }
+  .level-card { background: var(--paper-raised); border: 2px solid var(--line); border-radius: 16px; padding: 22px; border-top: 6px solid var(--tekhelet); }
+  .level-card.gold { border-top-color: var(--gold-bright); }
+  .level-card .tag { font-family: var(--font-mono); font-size: 12px; color: var(--tekhelet); font-weight: 700; }
+  .level-card.gold .tag { color: var(--gold); }
+  .level-card h3 { font-size: 20px; margin: 6px 0 8px; }
+  .level-card p { font-size: 14.5px; margin: 0; }
+
+  .schedule-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-top: 24px; }
+  @media (max-width: 560px) { .schedule-grid { grid-template-columns: 1fr; } }
+  .time-card { border: 2px solid var(--line); border-radius: 14px; padding: 18px 20px; background: var(--paper-raised); border-left: 5px solid var(--olive); }
+  .time-card .label { font-family: var(--font-mono); font-size: 12px; color: var(--ink-soft); text-transform: uppercase; letter-spacing: .06em; }
+  .time-card .time { font-family: var(--font-mono); font-size: 20px; font-weight: 700; margin-top: 4px; color: var(--ink); }
+  .time-card .slots { margin-top: 10px; display: grid; gap: 4px; font-family: var(--font-mono); font-size: 12.5px; color: var(--ink-soft); }
+  .time-card .slots span { color: var(--tekhelet); font-weight: 700; }
+  .note-box { margin-top: 20px; background: var(--gold-soft); border: 1px solid var(--gold-dark); border-radius: 12px; padding: 16px 20px; font-size: 14.5px; }
+  .note-box strong { color: var(--ink); }
+
+  .table-scroll { overflow-x: auto; margin-top: 22px; }
+  table.curric { width: 100%; min-width: 480px; border-collapse: collapse; font-size: 14.5px; }
+  table.curric th { text-align: left; font-family: var(--font-mono); font-size: 11.5px; text-transform: uppercase; letter-spacing: .05em; color: var(--ink-soft); border-bottom: 2px solid var(--tekhelet); padding: 8px 10px 8px 0; }
+  table.curric td { padding: 10px 10px 10px 0; border-bottom: 1px solid var(--line); vertical-align: top; }
+  table.curric td.wk { font-family: var(--font-mono); color: var(--tekhelet); font-weight: 700; white-space: nowrap; }
+
+  .family-photo-wrap { display: flex; justify-content: center; margin-top: 26px; }
+  .family-photo { width: 280px; max-width: 70%; border-radius: 16px; border: 8px solid var(--paper-raised); box-shadow: 0 10px 28px rgba(15,42,77,.3); transform: rotate(-2deg); }
+  .family-photo img { width: 100%; display: block; border-radius: 8px; }
+  .family-caption { text-align: center; font-size: 13px; color: var(--ink-soft); margin-top: 10px; }
+  .about-grid { display: grid; grid-template-columns: 1.25fr 1fr; gap: 20px; margin-top: 26px; align-items: start; }
+  @media (max-width: 560px) { .about-grid { grid-template-columns: 1fr; } }
+  .teacher { background: var(--paper-raised); border: 2px solid var(--line); border-radius: 16px; padding: 22px; border-top: 5px solid var(--gold-bright); }
+  .teacher.lead { border-top-width: 6px; }
+  .teacher .role-tag { display: inline-block; font-family: var(--font-mono); font-size: 11px; font-weight: 700; letter-spacing: .05em; text-transform: uppercase; padding: 4px 11px; border-radius: 999px; margin-bottom: 8px; }
+  .teacher.lead .role-tag { background: var(--gold-bright); color: var(--ink); }
+  .teacher.partner .role-tag { background: var(--tekhelet); color: #fff; }
+  .teacher h3 { font-size: 20px; margin: 0 0 6px; }
+  .teacher.partner h3 { font-size: 17px; }
+  .teacher p { font-size: 14.5px; margin: 0; }
+  .teacher.partner p { font-size: 13.5px; }
+
+  .form-wrap { background: var(--paper-raised); border: 2px solid var(--line); border-radius: 20px; padding: 30px; margin-top: 24px; border-top: 6px solid var(--tekhelet); }
+  .field { margin-bottom: 16px; }
+  .field label { display: block; font-size: 13px; font-weight: 700; margin-bottom: 6px; color: var(--ink); }
+  .field input[type="text"], .field input[type="tel"], .field input[type="email"], .field textarea {
+    width: 100%; font-family: var(--font-body); font-size: 15px; padding: 11px 13px;
+    border: 1px solid var(--line); border-radius: 9px; background: var(--paper); color: var(--ink);
+  }
+  .field input:focus, .field textarea:focus { outline: 2px solid var(--tekhelet); outline-offset: 1px; }
+  .radio-row { display: flex; gap: 20px; flex-wrap: wrap; }
+  .radio-row label { display: flex; align-items: center; gap: 7px; font-size: 14.5px; font-weight: 500; color: var(--ink); }
+  .form-note { font-size: 13px; color: var(--ink-soft); margin-top: 14px; }
+
+  .partners-row { display: flex; align-items: center; justify-content: center; gap: 26px; margin-top: 30px; flex-wrap: wrap; }
+  .partners-row .ptitle { font-family: var(--font-mono); font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: .05em; color: var(--ink-soft); }
+  .partners-row img.fed { height: 32px; }
+  .partners-row .ulpan-mark { display: flex; align-items: center; gap: 6px; }
+  .partners-row img.ulpan { height: 26px; width: 26px; border-radius: 6px; }
+  .partners-row .ulpan-mark span { font-family: var(--font-fun); font-weight: 700; font-size: 16px; color: #ea4477; }
+
+  .skyline-band { width: 100%; height: 70px; display: block; }
+  footer { padding-block: 10px 48px; text-align: center; }
+  footer p { font-size: 13px; }
+
+  .fade-in { opacity: 0; transform: translateY(14px); transition: opacity .6s ease, transform .6s ease; }
+  .fade-in.in { opacity: 1; transform: none; }
+  @media (prefers-reduced-motion: reduce) { .fade-in { opacity: 1; transform: none; transition: none; } }
+</style>
+</head>
+<body>
+
+<main>
+
+  <section class="hero">
+    <div class="hero-decor" aria-hidden="true">
+      <div class="cloud" style="top:10%;left:5%;width:90px;height:34px"></div>
+      <div class="cloud" style="top:16%;left:14%;width:60px;height:26px"></div>
+      <div class="cloud" style="top:8%;right:8%;width:80px;height:32px"></div>
+      <div class="cloud" style="top:15%;right:18%;width:55px;height:24px"></div>
+      <div class="heb-deco" style="top:30%;left:4%;font-size:26px;transform:rotate(-8deg)">לב</div>
+      <div class="heb-deco" style="top:62%;left:7%;font-size:22px;transform:rotate(5deg)">אהבה</div>
+      <div class="heb-deco" style="top:30%;right:5%;font-size:26px;transform:rotate(7deg)">קהילה</div>
+      <div class="heb-deco" style="top:62%;right:8%;font-size:22px;transform:rotate(-5deg)">ביחד</div>
+      <svg class="olive-deco" style="bottom:4%;left:2%;transform:rotate(-15deg)" viewBox="0 0 100 40"><path d="M5 35 Q40 10 95 5" stroke="var(--olive)" stroke-width="3" fill="none"/><ellipse cx="20" cy="27" rx="7" ry="4" fill="var(--olive-light)" transform="rotate(-20 20 27)"/><ellipse cx="38" cy="18" rx="7" ry="4" fill="var(--olive-light)" transform="rotate(-15 38 18)"/><ellipse cx="58" cy="11" rx="7" ry="4" fill="var(--olive-light)" transform="rotate(-10 58 11)"/><ellipse cx="78" cy="7" rx="7" ry="4" fill="var(--olive-light)" transform="rotate(-5 78 7)"/></svg>
+      <svg class="olive-deco" style="bottom:4%;right:2%;transform:rotate(15deg) scaleX(-1)" viewBox="0 0 100 40"><path d="M5 35 Q40 10 95 5" stroke="var(--olive)" stroke-width="3" fill="none"/><ellipse cx="20" cy="27" rx="7" ry="4" fill="var(--olive-light)" transform="rotate(-20 20 27)"/><ellipse cx="38" cy="18" rx="7" ry="4" fill="var(--olive-light)" transform="rotate(-15 38 18)"/><ellipse cx="58" cy="11" rx="7" ry="4" fill="var(--olive-light)" transform="rotate(-10 58 11)"/><ellipse cx="78" cy="7" rx="7" ry="4" fill="var(--olive-light)" transform="rotate(-5 78 7)"/></svg>
+    </div>
+    <div class="hero-inner">
+      <span class="heb-badge"><span class="heb">שָׁלוֹם!</span><span class="ph">HELLO · SHALOM</span></span>
+      <h1>Let's find out how many of us want to speak Hebrew.</h1>
+      <p class="sub">A proposed conversation-first Hebrew program for Charlotte's Jewish community — led by Yafa Brenner and co-taught with her partner, Yair, built on the Ulpan-Or method. Before we lock in a semester, we're gauging real interest.</p>
+      <div class="meta">
+        <span class="pill">10 weeks</span>
+        <span class="pill">Two levels</span>
+        <span class="pill">Morning or evening</span>
+        <span class="pill">Small groups, 4–6</span>
+      </div>
+      <div class="cta-row">
+        <a class="btn btn-primary" href="#interest">Tell us you're interested</a>
+        <a class="btn btn-ghost" href="#curriculum">See the curriculum</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="fade-in">
+    <p class="eyebrow">The Idea</p>
+    <h2>You speak from the first session — not after months of grammar.</h2>
+    <p style="margin-top:10px;max-width:56ch">The Ulpan-Or method teaches the way a first language is learned: through dialogue, image, and repetition — not worksheets. Here's roughly what week one sounds like:</p>
+    <div class="dialogue">
+      <div class="bubble a">
+        <div class="heb-line">שָׁלוֹם! מָה הַשֵּׁם שֶׁלְּךָ?</div>
+        <div class="ph-line">SHALOM! MA HA-SHEM SHEL-CHA?</div>
+        <div class="en-line">Hello! What's your name?</div>
+      </div>
+      <div class="bubble b">
+        <div class="heb-line">שְׁמִי דָּוִד. נָעִים מְאֹד!</div>
+        <div class="ph-line">SHMI DAVID. NA'IM ME'OD!</div>
+        <div class="en-line">My name is David. Nice to meet you!</div>
+      </div>
+    </div>
+    <div class="pillars">
+      <div class="pillar"><div class="num">01</div><h3>Dialogic Hebrew</h3><p>Live conversation from day one, not one-directional rules.</p></div>
+      <div class="pillar"><div class="num">02</div><h3>Audio-Visual</h3><p>Image and sound build instinct — no translating in your head.</p></div>
+      <div class="pillar"><div class="num">03</div><h3>Practice at Home</h3><p>A personal digital portal keeps class time for speaking.</p></div>
+    </div>
+  </section>
+
+  <section class="fade-in">
+    <p class="eyebrow gold">Who It's For</p>
+    <h2>Two levels, so it's important: tell us which one is you.</h2>
+    <div class="levels">
+      <div class="level-card">
+        <div class="tag">Track A</div>
+        <h3>Absolute Beginner</h3>
+        <p>Never studied Hebrew at all. You'll start with first sounds and words — zero prior Hebrew needed.</p>
+      </div>
+      <div class="level-card gold">
+        <div class="tag">Track B</div>
+        <h3>Novice Low</h3>
+        <p>You know a few words or letters — maybe from Hebrew school years ago — and you're ready to build your first real sentences.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="fade-in">
+    <p class="eyebrow">Schedule — Still Deciding</p>
+    <h2>Thursdays, 10 weeks. Morning or evening — which works for you?</h2>
+    <p style="margin-top:10px;max-width:56ch">Nothing is locked in yet. The group with more interest is the one we'll schedule first.</p>
+    <div class="schedule-grid">
+      <div class="time-card">
+        <div class="label">Morning option</div>
+        <div class="time">9:00–11:15 AM</div>
+        <div class="slots"><div><span>Track A</span> 9:00–10:00 AM</div><div>15-min break</div><div><span>Track B</span> 10:15–11:15 AM</div></div>
+      </div>
+      <div class="time-card">
+        <div class="label">Evening option</div>
+        <div class="time">5:30–7:45 PM</div>
+        <div class="slots"><div><span>Track A</span> 5:30–6:30 PM</div><div>15-min break</div><div><span>Track B</span> 6:45–7:45 PM</div></div>
+      </div>
+    </div>
+    <div class="note-box"><strong>Every session</strong> is co-taught by two instructors, splitting into groups of 4–6 so everyone actually talks — every time.</div>
+  </section>
+
+  <section class="fade-in" id="curriculum">
+    <p class="eyebrow gold">Sample Curriculum</p>
+    <h2>One real conversation theme a week.</h2>
+    <div class="table-scroll">
+      <table class="curric">
+        <tr><th>Week</th><th>Track A (Absolute Beginner)</th><th>Track B (Novice Low)</th></tr>
+        <tr><td class="wk">01</td><td>Greetings &amp; names</td><td>Introducing yourself, in sentences</td></tr>
+        <tr><td class="wk">02</td><td>Family &amp; friends</td><td>My family, in sentences</td></tr>
+        <tr><td class="wk">03</td><td>Food &amp; cafe culture</td><td>Ordering food &amp; drink</td></tr>
+        <tr><td class="wk">06</td><td>Shopping at the market</td><td>Bargaining at the market</td></tr>
+        <tr><td class="wk">10</td><td>Free conversation, wrap-up</td><td>Personal introduction speech</td></tr>
+      </table>
+    </div>
+  </section>
+
+  <section class="fade-in">
+    <p class="eyebrow">Your Teachers</p>
+    <h2>Nice to meet you.</h2>
+    <div class="family-photo-wrap">
+      <div class="family-photo"><img src="family_photo.png" alt="Yafa and Yair Brenner with their two sons at the Western Wall in Jerusalem"></div>
+    </div>
+    <p class="family-caption">Yafa &amp; Yair with their two sons, at the Kotel in Jerusalem</p>
+    <div class="about-grid">
+      <div class="teacher lead">
+        <span class="role-tag">★ Program Lead</span>
+        <h3>Yafa Brenner</h3>
+        <p>Yafa is the heart of the classroom and leads the program. Originally from Israel, she brings years of experience in education and community leadership — including two years as a shlicha (Jewish Agency emissary), leading educational and community programming at a school in Alabama.</p>
+      </div>
+      <div class="teacher partner">
+        <span class="role-tag">Co-Teacher · Her Partner</span>
+        <h3>Yair Brenner</h3>
+        <p>Yafa's partner in life and in the classroom, co-teaching every session by her side. A native Hebrew speaker who shared those same two years of shlichut in Alabama. Together they're raising two sons, always cooking something Israeli or playing Israeli music at home.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="fade-in" id="interest">
+    <p class="eyebrow gold">Let Us Know</p>
+    <h2>Tell us you're interested — it takes thirty seconds.</h2>
+    <p style="margin-top:10px;max-width:56ch">This isn't a binding registration. It's how we decide whether to run this at all, and which schedule to build first.</p>
+    <div class="form-wrap">
+      <form id="interest-form">
+        <div class="field">
+          <label for="f-name">Full name</label>
+          <input type="text" id="f-name" required>
+        </div>
+        <div class="field">
+          <label for="f-phone">Phone</label>
+          <input type="tel" id="f-phone" required>
+        </div>
+        <div class="field">
+          <label for="f-email">Email</label>
+          <input type="email" id="f-email" required>
+        </div>
+        <div class="field">
+          <label for="f-goal">What's your main reason for wanting to learn Hebrew?</label>
+          <textarea id="f-goal" rows="2" placeholder="e.g. reconnect with family, travel to Israel, read the siddur, finally finish what I started years ago…"></textarea>
+        </div>
+        <div class="field">
+          <label>Morning or evening?</label>
+          <div class="radio-row">
+            <label><input type="radio" name="when" value="Morning (9:00–11:15 AM)" checked> Morning</label>
+            <label><input type="radio" name="when" value="Evening (5:30–7:45 PM)"> Evening</label>
+            <label><input type="radio" name="when" value="Either works"> Either works</label>
+          </div>
+        </div>
+        <button type="submit" class="btn btn-primary" style="width:100%;justify-content:center;margin-top:6px">Send My Interest</button>
+        <p class="form-note">This opens your email app with your answers filled in — just hit send. We'll add you to the newsletter and follow up once we know the schedule.</p>
+      </form>
+    </div>
+
+    <div class="partners-row">
+      <span class="ptitle">In Partnership With</span>
+      <img class="fed" src="federation_logo.png" alt="Jewish Federation of Greater Charlotte">
+      <div class="ulpan-mark"><img class="ulpan" src="ulpanor_logo.png" alt="Ulpan-Or"><span>Ulpan·Or</span></div>
+    </div>
+  </section>
+
+  <svg class="skyline-band" viewBox="0 0 850 90" preserveAspectRatio="none" aria-hidden="true">
+    <g fill="var(--tekhelet-soft)">
+      <rect x="0" y="35" width="60" height="55"/>
+      <rect x="55" y="22" width="40" height="68"/>
+      <rect x="90" y="40" width="35" height="50"/>
+      <circle cx="170" cy="36" r="24"/>
+      <rect x="150" y="56" width="40" height="34"/>
+      <rect x="240" y="38" width="30" height="52"/>
+      <rect x="275" y="48" width="45" height="42"/>
+      <rect x="330" y="30" width="34" height="60"/>
+      <rect x="370" y="45" width="55" height="45"/>
+      <rect x="430" y="26" width="38" height="64"/>
+      <rect x="475" y="40" width="40" height="50"/>
+      <circle cx="555" cy="38" r="22"/>
+      <rect x="535" y="56" width="40" height="34"/>
+      <rect x="585" y="32" width="36" height="58"/>
+      <rect x="625" y="46" width="48" height="44"/>
+      <rect x="680" y="28" width="36" height="62"/>
+      <rect x="720" y="42" width="40" height="48"/>
+      <rect x="765" y="34" width="35" height="56"/>
+      <rect x="805" y="44" width="45" height="46"/>
+    </g>
+  </svg>
+
+  <footer>
+    <p>Hebrew Language Studies for Adults — a proposal for the Jewish Federation &amp; the Charlotte Jewish community · Yafa &amp; Yair Brenner</p>
+    <p>Questions? Call or text Yair at 659-281-6844, or email <a href="mailto:yairbre11@gmail.com">yairbre11@gmail.com</a></p>
+  </footer>
+
+</main>
+
+<script>
+  document.getElementById('interest-form').addEventListener('submit', function (e) {
+    e.preventDefault();
+    const name = document.getElementById('f-name').value.trim();
+    const phone = document.getElementById('f-phone').value.trim();
+    const email = document.getElementById('f-email').value.trim();
+    const goal = document.getElementById('f-goal').value.trim();
+    const when = document.querySelector('input[name="when"]:checked').value;
+
+    const subject = 'Interested in the Hebrew program — ' + name;
+    const body = 'Name: ' + name + '\nPhone: ' + phone + '\nEmail: ' + email +
+      '\nReason for learning Hebrew: ' + (goal || '(not specified)') +
+      '\nPreferred time: ' + when;
+
+    window.location.href = 'mailto:yairbre11@gmail.com?subject=' +
+      encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
+  });
+
+  if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    const els = document.querySelectorAll('.fade-in');
+    const obs = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) { entry.target.classList.add('in'); obs.unobserve(entry.target); }
+      });
+    }, { threshold: 0.1 });
+    els.forEach((el) => obs.observe(el));
+  } else {
+    document.querySelectorAll('.fade-in').forEach((el) => el.classList.add('in'));
+  }
+</script>
+
+</body>
+</html>
